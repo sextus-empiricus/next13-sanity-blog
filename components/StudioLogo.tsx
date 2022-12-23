@@ -1,15 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-
-const imgUrl =
-   'https://cdn.britannica.com/69/75569-050-7AB67C4B/herm-Socrates-half-original-Greek-Capitoline-Museums.jpg';
+import { socratesLogo } from '../configs/consts';
 
 const StudioLogo = (props: any) => {
    const { renderDefault } = props;
    return (
       <div className="flex items-center space-x-2">
          <Image
-            src={imgUrl}
+            src={socratesLogo}
             alt="Socrates"
             width={50}
             height={50}
