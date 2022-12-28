@@ -13,7 +13,7 @@ interface Props {
    };
 }
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
    const query = groq`*[_type == 'post']
@@ -43,8 +43,8 @@ const Post = async ({ params: { slug } }: Props) => {
    const post: Post = await client.fetch(query, { slug });
 
    return (
-      <article className="px-10 pb-28">
-         <section className="space-y-2 border text-white">
+      <article className="px-10 text-white">
+         <section className="space-y-2 text-white">
             <div className="relative min-h-[14rem] flex flex-column md:flex-row justify-between">
                <div className="absolute top-0 w-full h-full opacity-10 blur-sm">
                   <Image
@@ -54,7 +54,7 @@ const Post = async ({ params: { slug } }: Props) => {
                      fill
                   />
                </div>
-               <section className="p-5 bg-yellow-500 w-full">
+               <section className="p-5 post-banner-bg w-full">
                   <div className="flex flex-col md:flex-row justify-between gap-y-5">
                      <div>
                         <h1 className="text-4xl font-extrabold">
@@ -72,7 +72,7 @@ const Post = async ({ params: { slug } }: Props) => {
                         </p>
                      </div>
                      <div className="flex items-center space-x-2">
-                        <div className="w-[40px] h-[40px] relative">
+                        <div className="w-[50px] h-[50px] relative">
                            <Image
                               className="rounded-full"
                               alt="author"
@@ -82,24 +82,27 @@ const Post = async ({ params: { slug } }: Props) => {
                         </div>
                         <div className="w-64">
                            <h3 className="text-lg font-bold">
+                              <span className="opacity-50 font-normal text-base mr-2">
+                                 author:
+                              </span>
                               {post.author.name}
                            </h3>
-                           <div>{/*Author BIO*/}</div>
+                           <div>
+                              <p className="line-clamp-2 white">
+                                 {post.author.bio[0].children[0].text}
+                              </p>
+                           </div>
                         </div>
                      </div>
                   </div>
                   <div>
-                     <h2 className="italic pt-10">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Dolore, dolorem explicabo fuga id illum iure optio
-                        quaerat tenetur velit voluptatum.
-                     </h2>
+                     <h2 className="italic pt-10">{post.description}</h2>
                   </div>
                   <div className="flex items-center justify-end mt-auto space-x-auto">
                      {post.categories.map((category) => (
                         <p
                            key={nanoid()}
-                           className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold mt-4">
+                           className="bg-happy_pink text-white px-3 py-1 rounded-full text-sm font-semibold mt-4">
                            {category.title}
                         </p>
                      ))}
@@ -107,7 +110,11 @@ const Post = async ({ params: { slug } }: Props) => {
                </section>
             </div>
          </section>
-         <PortableText value={post.body} components={RichTextComponents} />
+         <div className="relative z-0">
+            <PortableText value={post.body} components={RichTextComponents} />
+            <div className="absolute bg-pink-gradient w-[30%] h-[30%] left-0 top-0 -z-10 opacity-30" />
+            <div className="absolute bg-blue-gradient w-[30%] h-[30%] right-0 bottom-0 -z-10 opacity-40" />
+         </div>
       </article>
    );
 };
