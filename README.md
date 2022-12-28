@@ -4,7 +4,7 @@
 
 Let’s build a BLOG with Next.js 13 (Sanity v3, TypeScript, Tailwind CSS, Auth, CMS, Preview Mode)
 
-#### Tutorial info
+## Tutorial info
 |            | `                                                                                                    |
 |------------|------------------------------------------------------------------------------------------------------|
 | `title`    | **Let’s build a BLOG with Next.js 13 (Sanity v3, TypeScript, Tailwind CSS, Auth, CMS, Preview Mode** |
