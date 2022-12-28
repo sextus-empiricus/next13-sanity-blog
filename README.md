@@ -5,11 +5,12 @@
 Let’s build a BLOG with Next.js 13 (Sanity v3, TypeScript, Tailwind CSS, Auth, CMS, Preview Mode)
 
 #### Tutorial info
-
-`title`: "Let’s build a BLOG with Next.js 13 (Sanity v3, TypeScript, Tailwind CSS, Auth, CMS, Preview Mode)"
-`author`: Sonny Sangha \
-`link`: [click](https://www.youtube.com/watch?v=x3fCEPFgUSM&ab_channel=SonnySangha) \
-`progress`: finished
+|            | `                                                                                                    |
+|------------|------------------------------------------------------------------------------------------------------|
+| `title`    | **Let’s build a BLOG with Next.js 13 (Sanity v3, TypeScript, Tailwind CSS, Auth, CMS, Preview Mode** |
+| `author`   | [Sonny Sangha](https://www.youtube.com/@SonnySangha)                                                 |
+| `link`     | [click](https://www.youtube.com/watch?v=x3fCEPFgUSM&ab_channel=SonnySangha)                          |
+| `progress` | finished ✅                                                                                           |
 
 ## Demo
 [Go to demo](https://the-socrates-blog-sextus-empiricus.vercel.app) 
